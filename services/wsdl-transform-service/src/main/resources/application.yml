@@ -1,0 +1,10 @@
+spring:
+  profiles:
+    active: dev
+  cloud:
+    config:
+      name: wsdl-transform-service
+      uri: http://localhost:8888
+      label: develop
+
+

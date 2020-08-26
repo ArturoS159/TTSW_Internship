@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://www.intership.ttsw.com.pl/soap-fifth-warehouse"
+            elementFormDefault="qualified"
+            xmlns:tns="http://www.intership.ttsw.com.pl/soap-fifth-warehouse">
+
+    <xsd:element name="getAllProductsInWarehouse">
+        <xsd:complexType>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="getAllProductsInWarehouseResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProductsWarehouseList" type="tns:ProductsWarehouseList"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:complexType name="ProductsWarehouseList">
+        <xsd:sequence>
+            <xsd:element name="WarehouseProduct"
+                         type="tns:WarehouseProduct"
+                         maxOccurs="unbounded" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="WarehouseProduct">
+        <xsd:sequence>
+            <xsd:element name="id" type="xsd:long" nillable="true"/>
+            <xsd:element name="category" type="tns:Category"/>
+            <xsd:element name="photo" type="xsd:string"/>
+            <xsd:element name="name" type="xsd:string"/>
+            <xsd:element name="producer" type="tns:Producer"/>
+            <xsd:element name="price" type="xsd:decimal"/>
+            <xsd:element name="quantity" type="xsd:long" nillable="true"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="Producer">
+        <xsd:sequence>
+            <xsd:element name="producerName" type="xsd:string"/>
+            <xsd:element name="producerAddress" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="Category">
+        <xsd:sequence>
+            <xsd:element name="categoryName" type="xsd:string"/>
+            <xsd:element name="categoryDescription" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,7 @@
+management.endpoints.web.exposure.include: '*'
+spring:
+  cloud:
+    config:
+      name: wholesale-app
+      uri: http://localhost:8888
+      label: develop

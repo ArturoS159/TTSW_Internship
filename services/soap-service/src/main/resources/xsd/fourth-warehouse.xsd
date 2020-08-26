@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://www.intership.ttsw.com.pl/soap-fourth-warehouse" elementFormDefault="qualified"
+            xmlns:tns="http://www.intership.ttsw.com.pl/soap-fourth-warehouse">
+
+    <xsd:element name="getAllProducts">
+        <xsd:complexType>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="getAllProductsListResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Products" type="tns:Products"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:complexType name="Products">
+        <xsd:sequence>
+            <xsd:element name="Product" type="tns:Product" maxOccurs="unbounded" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="Product">
+        <xsd:sequence>
+            <xsd:element name="productId" type="xsd:long" nillable="true"/>
+            <xsd:element name="productData" type="tns:ProductData"/>
+            <xsd:element name="producer" type="tns:Producer"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="ProductData">
+        <xsd:sequence>
+            <xsd:element name="name" type="xsd:string"/>
+            <xsd:element name="color" type="xsd:string"/>
+            <xsd:element name="size" type="xsd:string"/>
+            <xsd:element name="img" type="xsd:string"/>
+            <xsd:element name="price" type="xsd:decimal"/>
+            <xsd:element name="quantity" type="xsd:long"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="Producer">
+        <xsd:sequence>
+            <xsd:element name="name" type="xsd:string"/>
+            <xsd:element name="city" type="xsd:string"/>
+            <xsd:element name="postCode" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

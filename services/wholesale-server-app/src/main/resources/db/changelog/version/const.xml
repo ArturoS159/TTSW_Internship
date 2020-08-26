@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="8" author="artur">
+        <addForeignKeyConstraint baseColumnNames="role_id" baseTableName="users_roles" constraintName="users_fk0" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="role_id" referencedTableName="roles"/>
+    </changeSet>
+    <changeSet id="9" author="artur">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="users_roles" constraintName="users_fk1" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="user_id" referencedTableName="users"/>
+    </changeSet>
+    <changeSet id="10" author="artur">
+        <addForeignKeyConstraint baseColumnNames="warehouse_id" baseTableName="orders" constraintName="orders_fk0" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="warehouse_id" referencedTableName="warehouses"/>
+    </changeSet>
+    <changeSet id="11" author="artur">
+        <addForeignKeyConstraint baseColumnNames="order_id" baseTableName="basket_items" constraintName="orders_fk1" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="order_id" referencedTableName="orders"/>
+    </changeSet>
+    <changeSet id="12" author="artur">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="orders" constraintName="orders_fk2" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="user_id" referencedTableName="users"/>
+    </changeSet>
+    <changeSet id="13" author="artur">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="warehouses" constraintName="warehouses_fk0" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="user_id" referencedTableName="users"/>
+    </changeSet>
+</databaseChangeLog>

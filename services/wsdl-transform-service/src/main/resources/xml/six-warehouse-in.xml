@@ -1,0 +1,33 @@
+<soap:getAllProductsResponse xmlns:soap="http://www.intership.ttsw.com.pl/soap-six-warehouse">
+  <soap:Products>
+    <!--Zero or more repetitions:-->
+    <soap:Product>
+      <soap:id>10</soap:id>
+      <soap:category>string</soap:category>
+      <soap:photo>string</soap:photo>
+      <soap:name>string</soap:name>
+      <soap:prices>
+        <!--1 or more repetitions:-->
+        <soap:price>
+          <soap:date>2008-09-27</soap:date>
+          <soap:value>10</soap:value>
+        </soap:price>
+        <soap:price>
+          <soap:date>2008-09-30</soap:date>
+          <soap:value>9.72</soap:value>
+        </soap:price>
+        <soap:price>
+          <soap:date>2008-09-28</soap:date>
+          <soap:value>10.22</soap:value>
+        </soap:price>
+        <soap:price>
+          <soap:date>2008-09-29</soap:date>
+          <soap:value>10.24</soap:value>
+        </soap:price>
+      </soap:prices>
+      <soap:description>string</soap:description>
+      <soap:madeBy>string</soap:madeBy>
+      <soap:quantity>10</soap:quantity>
+    </soap:Product>
+  </soap:Products>
+</soap:getAllProductsResponse>

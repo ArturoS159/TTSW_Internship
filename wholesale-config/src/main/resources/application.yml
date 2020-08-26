@@ -1,0 +1,26 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      profiles: native
+      server:
+        git:
+          uri: https://github.com/marczin/cfg.git
+#          uri: git@gitlab.tt.com.pl:intership2020/config.git
+          searchPaths:
+#            - 'h2'
+#            - 'mongo'
+#            - 'PostgreSql'
+#            - 'dev'
+            - 'wholesale-services/*'
+#            - '{application}/{profile}'
+          ignoreLocalSshSettings: false
+          strictHostKeyChecking: false
+
+#          skip-ssl-validation: true
+#      label: develop
+

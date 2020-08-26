@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://www.intership.ttsw.com.pl/soap-wares"
+           targetNamespace="http://www.intership.ttsw.com.pl/soap-wares">
+
+    <xs:element name="getStuffByCode">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="code" type="xs:long" nillable="true"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getAllStuffs">
+        <xs:complexType>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getStuffByCodeResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="stuff" type="tns:stuff"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getAllStuffsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="stuffs" type="tns:stuffs"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+    <xs:complexType name="stuffs"> <!-- List -->
+        <xs:sequence>
+            <xs:element name="stuff" type="tns:stuff" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="stuff">
+        <xs:sequence>
+            <xs:element name="code" type="xs:long" nillable="true"/>
+            <xs:element name="description" type="xs:string"/>
+            <xs:element name="quantity" type="xs:long"/>
+            <xs:element name="totalPrice" type="xs:decimal"/>
+            <xs:element name="comment" type="xs:string"/>
+            <xs:element name="location" type="tns:location"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="location">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="longitude" type="xs:double"/>
+            <xs:element name="latitude" type="xs:double"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+</xs:schema>

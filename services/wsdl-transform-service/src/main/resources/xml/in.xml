@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ns2:Products xmlns:ns2="http://www.intership.ttsw.com.pl/product-model">
+    <ns2:Product>
+        <id>1</id>
+        <name>product name</name>
+        <image>base64</image>
+        <manufacturer>name</manufacturer>
+        <warehouse>Warehouse5</warehouse>
+        <price>12.5</price>
+        <amount>100</amount>
+    </ns2:Product>
+</ns2:Products>

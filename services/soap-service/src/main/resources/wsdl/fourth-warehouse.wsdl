@@ -1,0 +1,41 @@
+<definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:tns="http://www.intership.ttsw.com.pl/soap-fourth-warehouse"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/"
+             targetNamespace="http://www.intership.ttsw.com.pl/soap-fourth-warehouse"
+             name="FourthWarehouseEndpointService">
+    <types>
+        <xsd:schema>
+            <xsd:import namespace="http://www.intership.ttsw.com.pl/soap-fourth-warehouse"
+                        schemaLocation="../xsd/fourth-warehouse.xsd"/>
+        </xsd:schema>
+    </types>
+    <message name="getAllProducts">
+        <part name="parameters" element="tns:getAllProductsList"/>
+    </message>
+    <message name="getAllProductsListResponse">
+        <part name="parameters" element="tns:getAllProductsResponse"/>
+    </message>
+    <portType name="FourthWarehouseEndpoint">
+        <operation name="getAllProducts">
+            <input message="tns:getAllProducts"/>
+            <output message="tns:getAllProductsListResponse"/>
+        </operation>
+    </portType>
+    <binding name="FourthWarehouseEndpointPortBinding" type="tns:FourthWarehouseEndpoint">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <operation name="getAllProducts">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="FourthWarehouseEndpointService">
+        <port name="FourthWarehouseEndpointPort" binding="tns:FourthWarehouseEndpointPortBinding">
+            <soap:address location="http://localhost:8080/soap-service"/>
+        </port>
+    </service>
+</definitions>

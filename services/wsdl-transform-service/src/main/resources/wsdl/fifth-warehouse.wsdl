@@ -1,0 +1,47 @@
+<definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:tns="http://www.intership.ttsw.com.pl/soap-fifth-warehouse"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/"
+             targetNamespace="http://www.intership.ttsw.com.pl/soap-fifth-warehouse"
+             name="FifthWarehouseEndpointService">
+    <types>
+        <xsd:schema>
+            <xsd:import namespace="http://www.intership.ttsw.com.pl/soap-fifth-warehouse"
+                        schemaLocation="../xsd/fifth-warehouse.xsd"/>
+        </xsd:schema>
+    </types>
+
+    <message name="getAllProductsInWarehouse">
+        <part name="parameters" element="tns:getAllProductsInWarehouse"/>
+    </message>
+
+    <message name="getAllProductsInWarehouseResponse">
+        <part name="parameters" element="tns:getAllProductsInWarehouseResponse"/>
+    </message>
+
+    <portType name="FifthWarehouseEndpoint">
+        <operation name="getAllProductsInWarehouse">
+            <input message="tns:getAllProductsInWarehouse"/>
+            <output message="tns:getAllProductsInWarehouseResponse"/>
+        </operation>
+    </portType>
+
+    <binding name="FifthWarehouseEndpointPortBinding" type="tns:FifthWarehouseEndpoint">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <operation name="getAllProductsInWarehouse">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+    </binding>
+
+    <service name="FifthWarehouseEndpointService">
+        <port name="FifthWarehouseEndpointPort"
+              binding="tns:FifthWarehouseEndpointPortBinding">
+            <soap:address location="http://localhost:8080/soap-service"/>
+        </port>
+    </service>
+</definitions>

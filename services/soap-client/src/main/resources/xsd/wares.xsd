@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://www.intership.ttsw.com.pl/soap-wares"
+           targetNamespace="http://www.intership.ttsw.com.pl/soap-wares">
+
+    <xs:element name="getWareById">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:long" nillable="true"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getAllWares">
+        <xs:complexType>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getWareByIdResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="ware" type="tns:ware"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getAllWaresResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="wareList" type="tns:waresList"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+    <xs:complexType name="waresList"> <!-- List -->
+        <xs:sequence>
+            <xs:element name="ware" type="tns:ware" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ware" >
+        <xs:sequence>
+            <xs:element name="id" type="xs:long" nillable="true"/>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="category" type="xs:string"/>
+            <xs:element name="quantity" type="xs:long" nillable="true"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

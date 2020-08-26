@@ -1,0 +1,40 @@
+<definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:tns="http://www.intership.ttsw.com.pl/soap-first-warehouse"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/"
+             targetNamespace="http://www.intership.ttsw.com.pl/soap-first-warehouse" name="FirstWarehouseEndpointService">
+    <types>
+        <xsd:schema>
+            <xsd:import namespace="http://www.intership.ttsw.com.pl/soap-first-warehouse"
+                        schemaLocation="../xsd/first-warehouse.xsd"/>
+        </xsd:schema>
+    </types>
+    <message name="getAllWares">
+        <part name="parameters" element="tns:getAllWares"/>
+    </message>
+    <message name="getAllWaresResponse">
+        <part name="parameters" element="tns:getAllWaresResponse"/>
+    </message>
+    <portType name="FirstWarehouseEndpoint">
+        <operation name="getAllWares">
+            <input message="tns:getAllWares"/>
+            <output message="tns:getAllWaresResponse"/>
+        </operation>
+    </portType>
+    <binding name="FirstWarehouseEndpointPortBinding" type="tns:FirstWarehouseEndpoint">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <operation name="getAllWares">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="FirstWarehouseEndpointService">
+        <port name="FirstWarehouseEndpointPort" binding="tns:FirstWarehouseEndpointPortBinding">
+            <soap:address location="http://localhost:8080/soap-service"/>
+        </port>
+    </service>
+</definitions>

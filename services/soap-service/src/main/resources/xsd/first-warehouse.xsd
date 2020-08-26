@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://www.intership.ttsw.com.pl/soap-first-warehouse" elementFormDefault="qualified"
+            xmlns:tns="http://www.intership.ttsw.com.pl/soap-first-warehouse">
+
+    <xsd:element name="getAllWares">
+        <xsd:complexType>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="getAllWaresResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="WaresList" type="tns:WaresList"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:complexType name="WaresList">
+        <xsd:sequence>
+            <xsd:element name="Ware" type="tns:Ware" maxOccurs="unbounded" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="Ware">
+        <xsd:sequence>
+            <xsd:element name="id" type="xsd:long" nillable="true"/>
+            <xsd:element name="category" type="xsd:string"/>
+            <xsd:element name="photo" type="xsd:string"/>
+            <xsd:element name="name" type="xsd:string"/>
+            <xsd:element name="producer" type="xsd:string"/>
+            <xsd:element name="price" type="xsd:decimal"/>
+            <xsd:element name="quantity" type="xsd:long" nillable="true"/>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

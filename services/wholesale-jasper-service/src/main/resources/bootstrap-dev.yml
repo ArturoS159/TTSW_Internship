@@ -1,0 +1,8 @@
+spring:
+  cloud:
+    config:
+      name: wholesale-jasper-service
+      uri: http://localhost:8888
+      label: develop
+  application:
+    name: wholesale-jasper-service

@@ -1,0 +1,41 @@
+<definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:tns="http://www.intership.ttsw.com.pl/soap-third-warehouse"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/"
+             targetNamespace="http://www.intership.ttsw.com.pl/soap-third-warehouse"
+             name="ThirdWarehouseEndpointService">
+    <types>
+        <xsd:schema>
+            <xsd:import namespace="http://www.intership.ttsw.com.pl/soap-third-warehouse"
+                        schemaLocation="../xsd/third-warehouse.xsd"/>
+        </xsd:schema>
+    </types>
+    <message name="getAllProducts">
+        <part name="parameters" element="tns:getAllProducts"/>
+    </message>
+    <message name="getAllProductsResponse">
+        <part name="parameters" element="tns:getAllProductsResponse"/>
+    </message>
+    <portType name="ThirdWarehouseEndpoint">
+        <operation name="getAllProducts">
+            <input message="tns:getAllProducts"/>
+            <output message="tns:getAllProductsResponse"/>
+        </operation>
+    </portType>
+    <binding name="ThirdWarehouseEndpointPortBinding" type="tns:ThirdWarehouseEndpoint">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <operation name="getAllProducts">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="ThirdWarehouseEndpointService">
+        <port name="ThirdWarehouseEndpointPort" binding="tns:ThirdWarehouseEndpointPortBinding">
+            <soap:address location="http://localhost:8080/soap-service"/>
+        </port>
+    </service>
+</definitions>

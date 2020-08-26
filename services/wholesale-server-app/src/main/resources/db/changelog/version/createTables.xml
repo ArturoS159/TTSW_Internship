@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="1" author="artur">
+        <createTable tableName="users">
+            <column autoIncrement="true" name="user_id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="users_pkey"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="VARCHAR(255)">
+                <constraints unique="true" nullable="false"/>
+            </column>
+            <column name="password" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="street" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="post_code" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="city" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="nip" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="phone_number" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="warehouse_worker" type="BIGINT">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2" author="artur" >
+        <createTable tableName="roles">
+            <column autoIncrement="true" name="role_id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="roles_pkey"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="3" author="artur" >
+        <createTable tableName="users_roles">
+            <column autoIncrement="true" name="user_role_id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="users_roles_pkey"/>
+            </column>
+            <column name="role_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="4" author="artur" >
+        <createTable tableName="basket_items">
+            <column autoIncrement="true" name="basket_item_id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="baskets_pkey"/>
+            </column>
+            <column name="order_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="image" type="VARCHAR(20000)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="manufacturer" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="price" type="NUMERIC">
+                <constraints nullable="false"/>
+            </column>
+            <column name="amount" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="5" author="artur">
+        <createTable tableName="orders">
+            <column autoIncrement="true" name="order_id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="orders_pkey"/>
+            </column>
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_finalize" type="DATE">
+            </column>
+            <column name="date_sell" type="DATE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="total_price" type="NUMERIC">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="VARCHAR(255)"/>
+            <column name="total_amount" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="warehouse_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="active" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+<!--            <column name="assigned_by" type="BIGINT"/>-->
+        </createTable>
+    </changeSet>
+
+    <changeSet id="6" author="artur">
+        <createTable tableName="warehouses">
+            <column autoIncrement="true" name="warehouse_id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="warehouses_pkey"/>
+            </column>
+            <column name="warehouse_name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="street" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="post_code" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="city" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="nip" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="phone_number" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="7" author="marcin">
+
+        <createTable tableName="invoicepdf">
+            <column autoIncrement="true" name="pdf_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="pdf" type="bytea">
+                <constraints nullable="false"/>
+            </column>
+            <column name="invoice_nr" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="orderpdf">
+            <column autoIncrement="true" name="pdf_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="pdf" type="bytea">
+                <constraints nullable="false"/>
+            </column>
+            <column name="order_nr" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+
+
+
+</databaseChangeLog>
